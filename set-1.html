@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตู้ขอเสียงแลกผิวสวย</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <img src="./img/main-logo.png" width="100%" />
+        <!-- Number -->
+        <div class="count-down"> 
+            <img id="countdownImage" src="./img/number-1.png" width="300px"/>
+        </div>
+        <!-- Webcam -->
+        <div class="webcam-container">
+            <video id="webcam" autoplay></video>
+        </div>
+    </div>
+</body>
+
+<script>
+    if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+            var video = document.getElementById('webcam');
+            video.srcObject = stream;
+        })
+        .catch(function (error) {
+            console.log("Something went wrong!");
+        });
+    }
+
+    window.onload = function() {
+        var countdownImage = document.getElementById('countdownImage');
+        var images = ["./img/number-1.png", "./img/number-2.png", "./img/number-3.png"];
+        var index = 0;
+
+        setTimeout(function() {
+            var timer = setInterval(function() {
+                if (index >= images.length) {
+                    clearInterval(timer);
+                } else {
+                    countdownImage.src = images[index];
+                    index++;
+                }
+            }, 1500);
+        }, 1200);
+    };
+</script>
+</html>
