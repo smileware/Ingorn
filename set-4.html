@@ -34,7 +34,7 @@
     var recordedChunks = [];
 
     if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true })
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
         .then(function (stream) {
             var video = document.getElementById('webcam');
             video.srcObject = stream;
