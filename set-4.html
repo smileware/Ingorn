@@ -29,18 +29,34 @@
         </div>
     </div>
 </body>
-
 <script>
+    var mediaRecorder;
+    var recordedChunks = [];
+
     if (navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video: true })
         .then(function (stream) {
             var video = document.getElementById('webcam');
             video.srcObject = stream;
+
+            // Initialize MediaRecorder
+            mediaRecorder = new MediaRecorder(stream);
+
+            // Handle data available after recording
+            mediaRecorder.ondataavailable = function(event) {
+                if (event.data.size > 0) {
+                    recordedChunks.push(event.data);
+                }
+            };
+
+            // Start recording
+            mediaRecorder.start();
         })
         .catch(function (error) {
-            console.log("Something went wrong!");
+            console.log("Something went wrong!", error);
         });
     }
+
 
     window.onload = function() {
         var countdownImage = document.getElementById('countdownImage');
@@ -84,7 +100,7 @@
                 index++;
                 if (index >= emojiImages.length) {
                     clearInterval(emojiTimer);
-                    window.location.href = 'mute.html';
+                    stopRecordingAndSave();
                 } else {
                     document.getElementById('emojiImage').src = emojiImages[index];
                     countDownTimer(7); 
@@ -103,6 +119,30 @@
                 timerElement.innerHTML = seconds;
             }, 1000);
         }
+
+        // Function to stop recording and save the video file
+        function stopRecordingAndSave() {
+            mediaRecorder.stop();
+            mediaRecorder.onstop = function() {
+                var blob = new Blob(recordedChunks, {
+                    type: 'video/mp4'
+                });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'recorded_video.mp4';
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                }, 100);
+
+                window.location.href = 'mute.html';
+            };
+        }
+
     };
 </script>
 </html>
