@@ -42,12 +42,17 @@
             },
             audio: true 
         };
-        navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+        var options = {
+            mimeType: 'video/mp4; codecs="avc1.4D401E, mp4a.40.2"'
+        };
+        
+        navigator.mediaDevices.getUserMedia(constraints)
+        .then(function (stream) {
             var video = document.getElementById('webcam');
             video.srcObject = stream;
 
             // Initialize MediaRecorder
-            mediaRecorder = new MediaRecorder(stream);
+            mediaRecorder = new MediaRecorder(stream, options);
 
             // Handle data available after recording
             mediaRecorder.ondataavailable = function(event) {
