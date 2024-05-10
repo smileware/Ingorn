@@ -37,15 +37,16 @@
     if (navigator.mediaDevices.getUserMedia) {
         var constraints = {
             video: {
-                width: { ideal: 1920 },
-                height: { ideal: 1080 },
+                width: { ideal: 1280 },
+                height: { ideal: 720 },
                 frameRate: { ideal: 25 }
             },
             audio: true 
         };
         var options = {
-            mimeType: 'video/mp4; codecs="avc1.4D401E, mp4a.40.2"'
+            mimeType: 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
         };
+
 
         navigator.mediaDevices.getUserMedia(constraints)
         .then(function (stream) {
