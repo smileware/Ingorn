@@ -52,7 +52,7 @@
             video.srcObject = stream;
 
             // Initialize MediaRecorder
-            mediaRecorder = new MediaRecorder(stream, options);
+            mediaRecorder = new MediaRecorder(stream);
 
             // Handle data available after recording
             mediaRecorder.ondataavailable = function(event) {
