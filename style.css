@@ -134,8 +134,9 @@ body, html {
 .model { 
     position: absolute;
     bottom: 0px;
-    left: 90px;
-    width: 800px;
+    left: -50px;
+    width: 1010px;
+    z-index: 1;
 }
 
 .bubble-1 {

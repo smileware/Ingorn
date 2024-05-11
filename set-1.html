@@ -44,7 +44,7 @@
             audio: true 
         };
         var options = {
-            mimeType: 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+            mimeType: 'video/webm;codecs=h264,opus'
         };
 
 
@@ -54,7 +54,7 @@
             video.srcObject = stream;
 
             // Initialize MediaRecorder
-            mediaRecorder = new MediaRecorder(stream);
+            mediaRecorder = new MediaRecorder(stream, options);
 
             // Handle data available after recording
             mediaRecorder.ondataavailable = function(event) {
