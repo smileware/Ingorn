@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ตู้ขอเสียงแลกผิวสวย</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./animate.css">
 </head>
 <body>
     <div class="wrapper" onclick="goToNextPage()">
         <img src="./img/main-logo.png" width="100%" />
-        <img src="./img/2.Text/003.png" width="100%" />
-
+        <img src="./img/2.Text/003.png" width="100%" class="animate__animated animate__bounceIn" />
     </div>
 </body>
 <script>
     function goToNextPage() {
-        window.location.href = 'intro-consent.html';
+        const wrapper = document.querySelector('.animate__animated');
+        wrapper.classList.add('animate__bounceOut');
+        wrapper.addEventListener('animationend', function() {
+            window.location.href = 'intro-consent.html';
+        });
     }
 </script>
 </html>

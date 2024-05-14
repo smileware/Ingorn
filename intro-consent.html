@@ -5,23 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ตู้ขอเสียงแลกผิวสวย</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./animate.css">
 </head>
 <body>
     <div class="wrapper">
-        <img src="./img/main-logo.png" width="100%" />
+        <img src="./img/main-logo.png" width="100%" class="animate__animated animate__bounceIn" />
 
         <div class="consent-form">
             <img src="./img/2.Text/002.png" />
         </div>
         <div class="consent-buttons">
-            <a href="start.html">
+            <a href="#" onclick="goToNextPage()">
                 <img src="./img/btn-yes.png" />
             </a>
             <a href="#">
                 <img src="./img/btn-no.png" />
             </a>
             </div>
-        <img src="./img//2.Text/002-2.png" width="100%" style="margin-top: 220px"/>
+        <img src="./img//2.Text/002-2.png" width="100%" style="margin-top: 220px" class="next animate__animated animate__bounceIn"/>
     </div>
 </body>
+<script>
+    function goToNextPage() {
+        const wrapper = document.querySelector('.next');
+        wrapper.classList.add('animate__bounceOut');
+        wrapper.addEventListener('animationend', function() {
+            window.location.href = 'start.html';
+        });
+    }
+</script>
 </html>

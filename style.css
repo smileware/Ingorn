@@ -168,3 +168,59 @@ body, html {
     left: 690px;
     bottom: 110px;
 }
+
+@keyframes wiggle {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    12.5% { transform: translate(-5px, -5px) rotate(-2deg); }
+    25% { transform: translate(5px, -5px) rotate(2deg); }
+    37.5% { transform: translate(-5px, 5px) rotate(-2deg); }
+    50% { transform: translate(5px, 5px) rotate(2deg); }
+    62.5% { transform: translate(-5px, -5px) rotate(-2deg); }
+    75% { transform: translate(5px, -5px) rotate(2deg); }
+    87.5% { transform: translate(-5px, 5px) rotate(-2deg); }
+}
+
+.animate__wiggle {
+    animation-name: wiggle;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes wiggle2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(-5px, -5px) rotate(-3deg); }
+    20% { transform: translate(5px, -5px) rotate(3deg); }
+    30% { transform: translate(-5px, 5px) rotate(-3deg); }
+    40% { transform: translate(5px, 5px) rotate(3deg); }
+    50% { transform: translate(-5px, -5px) rotate(-3deg); }
+    60% { transform: translate(5px, -5px) rotate(3deg); }
+    70% { transform: translate(-5px, 5px) rotate(-3deg); }
+    80% { transform: translate(5px, 5px) rotate(3deg); }
+    90% { transform: translate(-5px, -5px) rotate(-3deg); }
+}
+
+.animate__wiggle2 {
+    animation-name: wiggle2;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes wiggle3 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(-7px, 7px) rotate(-4deg); }
+    20% { transform: translate(7px, -7px) rotate(4deg); }
+    30% { transform: translate(-5px, 5px) rotate(-3deg); }
+    40% { transform: translate(5px, -5px) rotate(3deg); }
+    50% { transform: translate(-8px, 8px) rotate(-5deg); }
+    60% { transform: translate(8px, -8px) rotate(5deg); }
+    70% { transform: translate(-6px, 6px) rotate(-4deg); }
+    80% { transform: translate(6px, -6px) rotate(4deg); }
+    90% { transform: translate(-4px, 4px) rotate(-2deg); }
+}
+
+.animate__wiggle3 {
+    animation-name: wiggle3;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
