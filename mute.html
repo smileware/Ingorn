@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="./animate.css">
 </head>
 <body>
-    <div class="wrapper" onclick="goToNextPage()">
-        <img src="./img/main-logo.png" width="100%"  class="animate__animated animate__bounceIn" />
+    <div class="wrapper">
+        <img src="./img/animated-logo.gif" width="100%" />
         <img src="./img/2.Text/015.png" width="100%" />
     </div>
 </body>
@@ -17,5 +17,6 @@
     function goToNextPage() {
         window.location.href = 'question.html';
     }
+    setTimeout(goToNextPage, 5000);
 </script>
 </html>

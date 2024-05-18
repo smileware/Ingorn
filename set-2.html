@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="wrapper">
-        <img src="./img/main-logo.png" width="100%"  class="animate__animated animate__bounceIn" />
+        <img src="./img/animated-logo.gif" width="100%" id="logo" />
+        <!-- <img src="./img/main-logo.png" width="100%"  class="animate__animated animate__bounceIn" /> -->
         <!-- Number -->
         <div class="count-down" id="countdownDiv"> 
             <img id="countdownImage" src="./img/number-3.png" width="300px"/>
@@ -34,6 +35,7 @@
 <script>
     var mediaRecorder;
     var recordedChunks = [];
+    var logoElem = document.getElementById('logo');
 
     if (navigator.mediaDevices.getUserMedia) {
         var constraints = {
@@ -108,7 +110,10 @@
         }, 1200);
 
         function displayEmojis() {
+            var oldSrc = logoElem.src;
             document.getElementById('emojiImage').src = emojiImages[index];
+            logoElem.src = oldSrc;
+
             countDownTimer(7); // Start timer immediately for the first emoji
             var emojiTimer = setInterval(function() {
                 index++;
@@ -119,6 +124,7 @@
                     document.getElementById('emojiImage').src = emojiImages[index];
                     countDownTimer(7); 
                 }
+                logoElem.src = oldSrc;
             }, 7000);
         }
 
